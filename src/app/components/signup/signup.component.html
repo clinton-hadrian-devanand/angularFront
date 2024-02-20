@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="centered">
+    <mat-card class="loginCard">
+      <mat-card-header>
+        <mat-card-title>Sign up</mat-card-title>
+        <mat-card-subtitle>We are proud to have you .. </mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content class="loginText">
+        <form action="">
+          <mat-form-field class="form-field">
+            <mat-label> First Name </mat-label>
+            <input type="text" matInput placeholder="First name here.." />
+          </mat-form-field>
+          <mat-form-field class="form-field">
+            <mat-label> Last Name </mat-label>
+            <input type="text" matInput placeholder="Last name here.." />
+          </mat-form-field>
+          <mat-form-field class="form-field">
+            <mat-label> Email </mat-label>
+            <input type="email" matInput placeholder="Mail id here.." />
+          </mat-form-field>
+          <mat-form-field class="form-field">
+            <mat-label> Password </mat-label>
+            <input
+              type="password"
+              [type]="hide ? 'password' : 'text'"
+              matInput
+              placeholder="Password here.."
+            />
+            <button matSuffix mat-icon-button (click)="hide = !hide">
+              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+          </mat-form-field>
+          <!-- <span style="float: left"><a href="">Forgot password ?</a></span> -->
+        </form>
+      </mat-card-content>
+
+      <mat-card-actions class="loginActions">
+        <button mat-stroked-button>Reset</button>
+        <button mat-raised-button color="primary">Sign up</button>
+      </mat-card-actions>
+    </mat-card>
+
+    <span class="logMessage"
+      >Already signed up ?
+      <span class="bold" style="margin-left: 5px; margin-right: 5px"
+        ><a href="" routerLink="/login">Log in</a></span
+      >
+      then!</span
+    >
+  </div>
+</div>

@@ -1,0 +1,53 @@
+
+
+.container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.centered{
+padding: 40px;
+}
+
+.logMessage{
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   /* content: "New ?? Sign up then !"; */
+    }
+
+    .bold{
+        font-weight: bold;
+    }
+
+.loginCard{
+    padding: 2%;
+min-height: 40vh;
+width:55vh;
+box-shadow: 5px 5px 30px 15px #00000026 !important;
+border-radius: 1em !important;
+}
+
+.loginText{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.loginActions{
+    margin-top: auto;
+    margin-left: auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.loginActions button {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+.form-field{
+    width: 100%;
+}

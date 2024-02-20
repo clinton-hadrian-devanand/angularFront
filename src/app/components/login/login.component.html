@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="centered">
+    <mat-card class="loginCard">
+      <mat-card-header>
+        <mat-card-title>Login</mat-card-title>
+        <mat-card-subtitle>Continue by logging in .. </mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content class="loginText">
+        <form action="" [formGroup]="loginForm">
+          <mat-form-field class="form-field">
+            <mat-label> Email </mat-label>
+            <input type="email" matInput placeholder="Mail id here.." formControlName="email" >
+              <mat-error *ngIf="loginForm.get('email')?.hasError('required')">Email is required</mat-error>
+              <mat-error *ngIf="loginForm.get('email')?.hasError('email')">Invalid email format</mat-error>
+          </mat-form-field>
+          <mat-form-field class="form-field">
+            <mat-label> Password </mat-label>
+            <input
+              type="password"
+              [type]="hide ? 'password' : 'text'"
+              matInput
+              placeholder="Password here.."
+              formControlName="password"
+            >
+            <mat-error *ngIf="loginForm.get('password')?.hasError('required')">Password is required</mat-error>
+            <button matSuffix  mat-icon-button (click)="hide = !hide">
+              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+          </mat-form-field>
+          <span style="float: left"><a href="">Forgot password ?</a></span>
+        </form>
+      </mat-card-content>
+
+      <mat-card-actions class="loginActions">
+        <button mat-stroked-button>Reset</button>
+        <button mat-raised-button color="primary" (click)="submitForm()">Login</button>
+      </mat-card-actions>
+    </mat-card>
+
+    <span class="logMessage"
+      >New ?
+      <span class="bold" style="margin-left: 5px; margin-right: 5px"
+        ><a href="" routerLink="/signup">Sign Up</a></span
+      >
+      then!</span
+    >
+  </div>
+</div>
