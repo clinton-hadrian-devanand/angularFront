@@ -14,7 +14,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
-import { MatSnackBar } from "@angular/material/snack-bar"
+import { MatSnackBarModule } from "@angular/material/snack-bar"
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { MatSnackBar } from "@angular/material/snack-bar"
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-    MatSnackBar
+    MatSnackBarModule,
+    HttpClientModule
   ],
   providers: [
     provideAnimationsAsync()

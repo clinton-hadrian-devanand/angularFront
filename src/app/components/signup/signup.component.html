@@ -7,18 +7,23 @@
       </mat-card-header>
 
       <mat-card-content class="loginText">
-        <form action="">
+        <form action="" [formGroup]="signUpForm">
           <mat-form-field class="form-field">
             <mat-label> First Name </mat-label>
-            <input type="text" matInput placeholder="First name here.." />
+            <input type="text" matInput placeholder="First name here.." formControlName="firstName" />
+            <mat-error *ngIf="signUpForm.get('firstName')?.hasError('required')">First name is required</mat-error>
           </mat-form-field>
           <mat-form-field class="form-field">
             <mat-label> Last Name </mat-label>
-            <input type="text" matInput placeholder="Last name here.." />
+            <input type="text" matInput placeholder="Last name here.." formControlName="lastName" />
+            <mat-error *ngIf="signUpForm.get('lastName')?.hasError('required')">Last name is required</mat-error>
           </mat-form-field>
           <mat-form-field class="form-field">
             <mat-label> Email </mat-label>
-            <input type="email" matInput placeholder="Mail id here.." />
+            <input type="email" matInput placeholder="Mail id here.." formControlName="email" />
+            <mat-error *ngIf="signUpForm.get('email')?.hasError('required')">Email is required</mat-error>
+            <mat-error *ngIf="signUpForm.get('email')?.hasError('email')">Email is invalid</mat-error>
+
           </mat-form-field>
           <mat-form-field class="form-field">
             <mat-label> Password </mat-label>
@@ -27,7 +32,9 @@
               [type]="hide ? 'password' : 'text'"
               matInput
               placeholder="Password here.."
+              formControlName="password"
             />
+            <mat-error *ngIf="signUpForm.get('password')?.hasError('required')">Password is required</mat-error>
             <button matSuffix mat-icon-button (click)="hide = !hide">
               <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
             </button>
@@ -38,7 +45,7 @@
 
       <mat-card-actions class="loginActions">
         <button mat-stroked-button>Reset</button>
-        <button mat-raised-button color="primary">Sign up</button>
+        <button mat-raised-button color="primary" (click)="onSubmit()">Sign up</button>
       </mat-card-actions>
     </mat-card>
 
