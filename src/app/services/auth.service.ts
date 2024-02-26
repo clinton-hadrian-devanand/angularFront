@@ -15,5 +15,8 @@ export class AuthService {
 
   }
 
+  signUp(signUp:any){
+    return this.http.post<any>(`${baseUrl}Auth/Register`,signUp)
+  }
+
 }
-  

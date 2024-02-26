@@ -34,8 +34,11 @@
 
       <mat-card-actions class="loginActions">
         <button mat-stroked-button>Reset</button>
-        <button mat-raised-button color="primary" (click)="submitForm()">Login</button>
+        <button mat-raised-button color="primary" [disabled]="isLoading" (click)="submitForm()">Login</button>
       </mat-card-actions>
+
+      <mat-card-footer *ngIf="isLoading"><mat-progress-bar mode="indeterminate"></mat-progress-bar></mat-card-footer>
+
     </mat-card>
 
     <span class="logMessage"

@@ -16,6 +16,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
+  isLoading=false;
 
   constructor(
     private fb: FormBuilder,
@@ -33,9 +34,22 @@ export class LoginComponent implements OnInit {
   submitForm() {
     if (!this.loginForm.invalid) {
       console.log(this.loginForm);
+      this.isLoading=true;
       this.auth.authenticate(this.loginForm.value).subscribe({
-        next: (res) => alert('res came'),
-        error: (err) => alert(`ERROR ${err?.error?.message}`),
+        next: (res) => {
+          this.isLoading=false;
+          this._snack.open(`${res.message}`,'close',{
+          duration:3000,
+          horizontalPosition:'end',
+          verticalPosition:'top'
+        })},
+        error: (err) => {
+          this.isLoading=false;
+          this._snack.open(`${err?.error?.message}`,'close',{
+          duration:3000,
+          horizontalPosition:'end',
+          verticalPosition:'top'
+        })},
       });
     } else {
       console.log('invalid');
